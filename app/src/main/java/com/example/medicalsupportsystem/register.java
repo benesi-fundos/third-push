@@ -9,7 +9,9 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -17,9 +19,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class register extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+    FirebaseAuth fAuth;
 Button create, prlogin;
 EditText prEmail1, prPassword1;
+ProgressBar Prgressbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +31,8 @@ EditText prEmail1, prPassword1;
         prlogin = (Button) findViewById(R.id.btna);
         prEmail1 = (EditText) findViewById(R.id.etEmail);
         prPassword1 = (EditText) findViewById(R.id.etPsw2);
-
+        fAuth = FirebaseAuth.getInstance();
+        Prgressbar= (ProgressBar) findViewById(R.id.progbar);
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,15 +41,19 @@ EditText prEmail1, prPassword1;
             }
         });
         prlogin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                mAuth = FirebaseAuth.getInstance();
-                String email = prEmail1.getEditableText().toString();
-                String password = prPassword1.getEditableText().toString();
+                Prgressbar.setVisibility(View.VISIBLE);
+                fAuth = FirebaseAuth.getInstance();
+                String email = prEmail1.getText().toString().trim();
+                String password = prPassword1.getText().toString().trim();
                 if (email.isEmpty()) {
                     prEmail1.setError("fill in email please");
                     prEmail1.requestFocus();
+                    Prgressbar.setVisibility(View.GONE);
                     return;
+
                 }
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     prEmail1.setError("please provide a valid email address");
@@ -62,16 +70,26 @@ EditText prEmail1, prPassword1;
                     prPassword1.requestFocus();
                     return;
                 }
-                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                 @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
+                Prgressbar.setVisibility(View.VISIBLE);
 
-                //professional professional = new professional(email, password);
-                 }
-                }
+                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            //Toast.makeText(register.this, "successfully logged in", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getApplicationContext(), doctors.class));
 
-                 });
+                            Prgressbar.setVisibility(View.GONE);
+
+
+                        }
+                        else {
+                            Toast.makeText(register.this, "either email or password is not correct" + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Prgressbar.setVisibility(View.GONE);
+
+                        }
+                    }
+                });
             }
         });
     }

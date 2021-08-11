@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MEDICALSUPPORTSYSTEM">
-        <activity android:name=".professionalsloggedin"></activity>
+        <activity android:name=".Appointmants"></activity>
+        <activity android:name=".doctors" />
+        <activity android:name=".diagnosissection" />
+        <activity android:name=".professionalsloggedin" />
         <activity android:name=".patientloggedin" />
         <activity android:name=".signuppatient" />
         <activity android:name=".signup" />

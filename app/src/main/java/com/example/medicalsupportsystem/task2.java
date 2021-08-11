@@ -9,8 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,10 +26,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class task2 extends AppCompatActivity {
     Button home, signninn, pSignin;
-    EditText pUserName, pUserPassword;
-    TextView view;
-    DatabaseReference referenci3;
-//private firebaseAuth mAuth;
+    EditText pemail, pUserPassword;
+    FirebaseAuth mAuth;
+    ProgressBar prrogrsbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +37,10 @@ public class task2 extends AppCompatActivity {
         home = (Button) findViewById(R.id.btnb6);
         signninn = (Button) findViewById(R.id.btnb9);
         pSignin = (Button) findViewById(R.id.btnb5);
-        pUserName = (EditText) findViewById(R.id.txvs2);
+        pemail = (EditText) findViewById(R.id.txvs2);
         pUserPassword = (EditText) findViewById(R.id.txvs3);
+        prrogrsbar = (ProgressBar)findViewById(R.id.prrogbar);
+        //pSignin.setOnClickListener(this:: pSignin);
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,95 +56,33 @@ public class task2 extends AppCompatActivity {
                 startActivity(hom);
             }
         });
+        prrogrsbar.setVisibility(View.INVISIBLE);
         pSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                usePassword();
-                userName();
-                //pSignin(View view);
-                isUser();
-            }
-        });
-    }
-
-    public boolean userName() {
-        String userName = pUserName.getEditableText().toString();
-        if (userName.isEmpty()) {
-            pUserName.setError("please fill in your email address");
-            pUserName.requestFocus();
-            return true;
-
-        } else {
-            pUserName.setError(null);
-            return false;
-        }
-
-
-    }
-
-    public boolean usePassword() {
-        String password = pUserPassword.getEditableText().toString();
-        if (password.isEmpty()) {
-            pUserPassword.setError("password cannot be empty");
-            pUserPassword.requestFocus();
-            return false;
-
-        } else {
-            pUserPassword.setError(null);
-            //pUserPassword.setEnabled(false);
-            return true;
-        }
-
-    }
-
-    public void pSignin(View view) {
-        if (!userName() || !usePassword()) {
-            return;
-        } else {
-            isUser();
-        }
-    }
-
-    private void isUser() {
-        String userEnteredUserName = pUserName.getEditableText().toString();
-        String userEnteredPassword = pUserPassword.getEditableText().toString();
-        DatabaseReference referenci3 = FirebaseDatabase.getInstance().getReference("patients");
-        Query checkUser = referenci3.orderByChild("pUserName").equalTo(userEnteredUserName);
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                   // pUserName.setError(null);
-                    String passwordFromDB = snapshot.child(userEnteredUserName).child("pUserName").getValue(String.class);
-                    if(passwordFromDB.equals(userEnteredPassword)){
-                        pUserPassword.setError(null);
-                        String nameFromDB = snapshot.child(userEnteredUserName).child("pname").getValue(String.class);
-                        String useNameFromDB = snapshot.child(userEnteredUserName).child("pUserName").getValue(String.class);
-                        String idNumberFromDB = snapshot.child(userEnteredUserName).child("idnumber").getValue(String.class);
-                        Intent intent = new Intent(getApplication(), patientloggedin.class);
-                        intent.putExtra("pname",nameFromDB);
-                        intent.putExtra("pUserName",useNameFromDB);
-                        intent.putExtra("idnumber",idNumberFromDB);
-                        startActivity(intent);
-
+                mAuth = FirebaseAuth.getInstance();
+                String email = pemail.getText().toString().trim();
+                String password = pUserPassword.getText().toString().trim();
+                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            Toast.makeText(task2.this, "user registration is completed you can now sign in", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getApplicationContext(), patientloggedin.class));
+                            prrogrsbar.setVisibility(View.GONE);
+                        }
+                        else {
+                            Toast.makeText(task2.this, "either email or password is not correct" + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            prrogrsbar.setVisibility(View.GONE);
+                        }
                     }
-                    else {
-                        pUserPassword.setError("wrong password");
-                        pUserPassword.requestFocus();
-                        return;
-                    }
-                }
-                else {
-                    pUserName.setError("no such user exist");
-                    pUserName.requestFocus();
-                    return;
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                });
 
             }
+
+
         });
+      }
     }
-}
+
+

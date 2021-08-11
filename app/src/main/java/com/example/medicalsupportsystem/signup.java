@@ -1,5 +1,6 @@
 package com.example.medicalsupportsystem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,14 +10,23 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class signup extends AppCompatActivity {
+    private FirebaseAuth mAuth;
 Button signupp, PrRegister;
+FirebaseAuth fAuth;
 EditText prName, PrIdNumber, PrEmail, prPassword, prcofpassword;
 FirebaseDatabase root;
+ProgressBar pgresibar;
 DatabaseReference referenci2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +39,8 @@ DatabaseReference referenci2;
         prPassword = (EditText)findViewById(R.id.ppltx4);
         PrRegister = (Button)findViewById(R.id.btna1);
         prcofpassword = (EditText)findViewById(R.id.ppltx5);
-
+        pgresibar = (ProgressBar)findViewById(R.id.prgesbar);
+        fAuth = FirebaseAuth.getInstance();
 
         signupp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +49,10 @@ DatabaseReference referenci2;
                 startActivity(signnupp);
             }
         });
+      //if(fAuth.getCurrentUser() != null){
+          //startActivity(new Intent(getApplicationContext(), register.class));
+          //finish();
+      //}
 
         PrRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,10 +60,11 @@ DatabaseReference referenci2;
                 root = FirebaseDatabase.getInstance();
                 referenci2 = root.getReference(  "professionals");
                 String name = prName.getEditableText().toString();
-                String email = PrEmail.getEditableText().toString();
-                String password = prPassword.getEditableText().toString();
+                String email = PrEmail.getText().toString().trim();
+                String password = prPassword.getText().toString().trim();
                 String idNumber = PrIdNumber.getEditableText().toString();
                 String confirmPassword = prcofpassword.getEditableText().toString();
+                mAuth = FirebaseAuth.getInstance();
 
 
                 if(TextUtils.isEmpty(email)){
@@ -73,11 +89,31 @@ DatabaseReference referenci2;
                      return;
                 }
 
-
+                pgresibar.setVisibility(View.VISIBLE);
 
 
                 professional professional1 = new professional(name, idNumber, email, password);
                 referenci2.child(idNumber).setValue(professional1);
+
+
+
+            fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                 @Override
+                 public void onComplete(@NonNull Task<AuthResult> task) {
+                  if(task.isSuccessful()){
+                      Toast.makeText(signup.this, "user registration is completed you can now sign in", Toast.LENGTH_LONG).show();
+                      startActivity(new Intent(getApplicationContext(), register.class));
+                      pgresibar.setVisibility(View.GONE);
+                  }
+
+                  else {
+                      Toast.makeText(signup.this, "error"+ task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+
+                  }
+                 }
+
+             });
+
             }
         });
     }

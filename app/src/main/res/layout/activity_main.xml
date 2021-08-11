@@ -31,14 +31,14 @@
         android:layout_height="wrap_content"
         android:text="create account"
         android:textSize="10sp"
-        app:backgroundTint="#0728DD"
+        app:backgroundTint="#0BEFB9"
         app:cornerRadius="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.978"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.191" />
+        app:layout_constraintVertical_bias="0.144" />
 
     <Button
         android:id="@+id/btn2"
@@ -46,14 +46,14 @@
         android:layout_height="wrap_content"
         android:text="sign in"
         android:textSize="20sp"
-        app:backgroundTint="#0D2ACD"
+        app:backgroundTint="#06E4AF"
         app:cornerRadius="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.979"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.238" />
 
     <Button
         android:id="@+id/btn3"
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:text="go for test"
         android:textSize="30sp"
-        app:backgroundTint="#8E916C"
+        app:backgroundTint="#4E8A7C"
         app:cornerRadius="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:text="health tips"
         android:textSize="30sp"
-        app:backgroundTint="#3D7840"
+        app:backgroundTint="#43B398"
         app:cornerRadius="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,12 +84,12 @@
         app:layout_constraintVertical_bias="0.755" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/visthosp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="visit hospital"
         android:textSize="30sp"
-        app:backgroundTint="#14AA9C"
+        app:backgroundTint="#317A69"
         app:cornerRadius="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +104,7 @@
         android:layout_height="wrap_content"
         android:text="create account"
         android:textSize="10sp"
-        app:backgroundTint="#0BD813"
+        app:backgroundTint="#5AA190"
         app:cornerRadius="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +119,7 @@
         android:layout_height="wrap_content"
         android:text="professionals"
         android:textColor="#0D2ACD"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.978"
@@ -133,13 +133,13 @@
         android:layout_height="wrap_content"
         android:text="patients"
         android:textColor="#0BD813"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintHorizontal_bias="0.028"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.109" />
 
     <Button
         android:id="@+id/btnb2"
@@ -147,13 +147,13 @@
         android:layout_height="wrap_content"
         android:text="sign in"
         android:textSize="10sp"
-        app:backgroundTint="#0BD813"
+        app:backgroundTint="#56A895"
         app:cornerRadius="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.267" />
+        app:layout_constraintVertical_bias="0.228" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

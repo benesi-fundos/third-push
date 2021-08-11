@@ -1,15 +1,15 @@
 package com.example.medicalsupportsystem;
 
 public class patients {
-    String pname, pUserName, ppassword, idnumber;
+    String pname, email, ppassword, idnumber;
 
     public patients() {
 
     }
 
-    public patients(String pname, String pUserName, String ppassword, String idnumber) {
+    public patients(String pname, String email, String ppassword, String idnumber) {
         this.pname = pname;
-        this.pUserName = pUserName;
+        this.email = email;
         this.ppassword = ppassword;
         this.idnumber = idnumber;
     }
@@ -28,11 +28,11 @@ public class patients {
     }
 
     public String getpUserName() {
-        return pUserName;
+        return email;
     }
 
     public void setpUserName(String pemail) {
-        this.pUserName = pUserName;
+        this.email = email;
     }
 
     public String getPpassword() {

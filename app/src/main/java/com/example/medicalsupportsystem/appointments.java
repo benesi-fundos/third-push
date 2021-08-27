@@ -1,15 +1,15 @@
 package com.example.medicalsupportsystem;
 
 public class appointments {
-    String fullName, idNum, distict, tradtionAt, village, psign1, psign2, psign3, psign4;
+    String fullname, idnum, distict, ta, village, psign1, psign2, psign3, psign4;
     public appointments() {
     }
 
-    public appointments(String fullName, String idNum, String distict, String tradtionAt, String village, String psign1, String psign2, String psign3, String psign4) {
-        this.fullName = fullName;
-        this.idNum = idNum;
+    public appointments(String fullname, String idnum, String distict, String ta, String village, String psign1, String psign2, String psign3, String psign4) {
+        this.fullname = fullname;
+        this.idnum = idnum;
         this.distict = distict;
-        this.tradtionAt = tradtionAt;
+        this.ta = ta;
         this.village = village;
         this.psign1 = psign1;
         this.psign2 = psign2;
@@ -17,20 +17,20 @@ public class appointments {
         this.psign4 = psign4;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
-    public String getIdNum() {
-        return idNum;
+    public String getIdnum() {
+        return idnum;
     }
 
-    public void setIdNum(String idNum) {
-        this.idNum = idNum;
+    public void setIdnum(String idnum) {
+        this.idnum = idnum;
     }
 
     public String getDistict() {
@@ -41,12 +41,12 @@ public class appointments {
         this.distict = distict;
     }
 
-    public String getTradtionAt() {
-        return tradtionAt;
+    public String getTa() {
+        return ta;
     }
 
-    public void setTradtionAt(String tradtionAt) {
-        this.tradtionAt = tradtionAt;
+    public void setTa(String ta) {
+        this.ta = ta;
     }
 
     public String getVillage() {

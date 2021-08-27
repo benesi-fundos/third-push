@@ -73,8 +73,8 @@ DatabaseReference referenci2;
                     return;
                 }
                 if(TextUtils.isEmpty(name)){
-                    PrEmail.setError("please fill in your name");
-                    PrEmail.requestFocus();
+                    prName.setError("please fill in your name");
+                    prName.requestFocus();
                     return;
                 }
 
@@ -83,8 +83,8 @@ DatabaseReference referenci2;
                     PrIdNumber.requestFocus();
                     return;
                 }
-                if(password.length() != confirmPassword.length()){
-                    prcofpassword.setError("passwordss not matching");
+                if(!(password.equals(confirmPassword))){
+                    prcofpassword.setError("passwords not matching");
                     prcofpassword.requestFocus();
                      return;
                 }
@@ -104,10 +104,22 @@ DatabaseReference referenci2;
                       Toast.makeText(signup.this, "user registration is completed you can now sign in", Toast.LENGTH_LONG).show();
                       startActivity(new Intent(getApplicationContext(), register.class));
                       pgresibar.setVisibility(View.GONE);
+                      prName.setText("");
+                      prPassword.setText("");
+                      prcofpassword.setText("");
+                      PrEmail.setText("");
+                      PrIdNumber.setText("");
+
                   }
 
                   else {
                       Toast.makeText(signup.this, "error"+ task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                      pgresibar.setVisibility(View.GONE);
+                      prName.setText("");
+                      prPassword.setText("");
+                      prcofpassword.setText("");
+                      PrEmail.setText("");
+                      PrIdNumber.setText("");
 
                   }
                  }

@@ -80,12 +80,14 @@ ProgressBar Prgressbar;
                             startActivity(new Intent(getApplicationContext(), doctors.class));
 
                             Prgressbar.setVisibility(View.GONE);
-
+                            prEmail1.setText("");
+                            prPassword1.setText("");
 
                         }
                         else {
                             Toast.makeText(register.this, "either email or password is not correct" + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                             Prgressbar.setVisibility(View.GONE);
+                            startActivity(new Intent(getApplicationContext(), register.class));
 
                         }
                     }

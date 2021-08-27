@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,20 +61,45 @@ public class task2 extends AppCompatActivity {
         pSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                prrogrsbar.setVisibility(View.VISIBLE);
                 mAuth = FirebaseAuth.getInstance();
                 String email = pemail.getText().toString().trim();
                 String password = pUserPassword.getText().toString().trim();
+
+                if(email.isEmpty()){
+                    pemail.setError("enter email please");
+                    pemail.requestFocus();
+                    prrogrsbar.setVisibility(View.GONE);
+                    return;
+                }
+                if(password.isEmpty()){
+                    pUserPassword.setError("password cannot be empty");
+                    pUserPassword.requestFocus();
+                    prrogrsbar.setVisibility(View.GONE);
+                    return;
+                }
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    pemail.setError("please provide a valid email address");
+                    pemail.requestFocus();
+                    prrogrsbar.setVisibility(View.GONE);
+                    return;
+                }
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-                            Toast.makeText(task2.this, "user registration is completed you can now sign in", Toast.LENGTH_LONG).show();
+                            Toast.makeText(task2.this, "Authentication is successful", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getApplicationContext(), patientloggedin.class));
                             prrogrsbar.setVisibility(View.GONE);
+                            pemail.setText("");
+                            pUserPassword.setText("");
                         }
-                        else {
+                        if(!task.isSuccessful()) {
                             Toast.makeText(task2.this, "either email or password is not correct" + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                           // startActivity(new Intent(getApplicationContext(), task2.class));
                             prrogrsbar.setVisibility(View.GONE);
+                            pemail.setError("invalid email");
+                            pUserPassword.setError("invalid password ");
                         }
                     }
                 });

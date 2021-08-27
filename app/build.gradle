@@ -6,6 +6,26 @@ plugins {
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
+    packagingOptions{
+      //  exclude "org/apache/commons/codec/language/bm/gen_approx_portuguese.txt"
+  //     exclude "META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version"
+//       exclude "play-services-tasks.properties"
+//       exclude "META-INF/androidx.lifecycle_lifecycle-livedata-core.version"
+//        exclude "META-INF/androidx.lifecycle_lifecycle-viewmodel-savedstate.version"
+//        exclude "META-INF/androidx.legacy_legacy-support-core-utils.version"
+//        exclude "META-INF/androidx.vectordrawable_vectordrawable.version"
+//       exclude "META-INF/androidx.loader_loader.version"
+//        exclude "META-INF/androidx.lifecycle_lifecycle-livedata.version"
+//        exclude "META-INF/androidx.lifecycle_lifecycle-runtime.version"
+//        exclude"firebase-annotations.properties"
+//        exclude "META-INF/androidx.appcompat_appcompat-resources.version"
+//        exclude "META-INF/androidx.transition_transition.version"
+//        exclude "play-services-safetynet.properties"
+//        exclude "META-INF/androidx.appcompat_appcompat.version"
+//        exclude "META-INF/androidx.swiperefreshlayout_swiperefreshlayout.version"
+//        exclude "'META-INF/androidx.viewpager_viewpager.version"
+
+    }
 
     defaultConfig {
         applicationId "com.example.medicalsupportsystem"

@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wwa1"
     tools:context=".Appointmants">
 
     <EditText
         android:id="@+id/data"
-        android:layout_width="168dp"
-        android:layout_height="39dp"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
         android:background="#08E6B1"
         android:ems="10"
-        android:hint="full name"
+        android:hint=" enter full name"
+        android:textColor="#0721B1"
         android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -24,11 +25,12 @@
 
     <EditText
         android:id="@+id/fname"
-        android:layout_width="170dp"
-        android:layout_height="36dp"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
         android:background="#0BD3A3"
         android:ems="10"
-        android:hint="id number"
+        android:hint="ente id number"
+        android:textColor="#0721B1"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,11 +41,12 @@
 
     <EditText
         android:id="@+id/tradA"
-        android:layout_width="165dp"
-        android:layout_height="35dp"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
         android:background="#06D5A3"
         android:ems="10"
-        android:hint="T/A"
+        android:hint=" enter T/A"
+        android:textColor="#0721B1"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,11 +57,12 @@
 
     <EditText
         android:id="@+id/vlg"
-        android:layout_width="165dp"
-        android:layout_height="34dp"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
         android:background="#06D5A3"
         android:ems="10"
-        android:hint="village"
+        android:hint="enter village"
+        android:textColor="#0721B1"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,111 +73,117 @@
 
     <EditText
         android:id="@+id/sign1"
-        android:layout_width="177dp"
-        android:layout_height="47dp"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
         android:background="#0BE8B3"
         android:ems="10"
-        android:hint="enter"
+        android:hint="enter first sign"
         android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
+        android:textColor="#0721B1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.978"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.432" />
+
+    <EditText
+        android:id="@+id/sign2"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+        android:background="#06EAB3"
+        android:ems="10"
+        android:hint="enter second sign"
+        android:inputType="textPersonName"
+        android:textColor="#0721B1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316" />
-
-    <EditText
-        android:id="@+id/sign2"
-        android:layout_width="174dp"
-        android:layout_height="46dp"
-        android:background="#06EAB3"
-        android:ems="10"
-        android:hint="enter"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.996"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42" />
+        app:layout_constraintVertical_bias="0.524" />
 
     <EditText
         android:id="@+id/sign3"
-        android:layout_width="174dp"
-        android:layout_height="47dp"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
         android:background="#03E3AD"
         android:ems="10"
-        android:hint="enter"
+        android:hint="enter third sign"
+        android:textColor="#0721B1"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.995"
+        app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintVertical_bias="0.637" />
 
     <EditText
         android:id="@+id/sign4"
         android:layout_width="176dp"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
         android:background="#08F6BD"
         android:ems="10"
-        android:hint="enter"
+        android:hint="enter fourth sign"
         android:inputType="textPersonName"
+        android:textColor="#0721B1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.997"
+        app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintVertical_bias="0.736" />
 
     <TextView
         android:id="@+id/usdtv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="enter personal details"
-        android:textColor="#12A17F"
+        android:text="personal details"
+        android:textColor="#83EF07"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
+        app:layout_constraintVertical_bias="0.276" />
 
     <TextView
         android:id="@+id/usdtv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" enter signs and symptoms"
-        android:textColor="#64FFDA"
+        android:text="signs and symptoms"
+        android:textColor="#83EF07"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.378" />
 
     <TextView
         android:id="@+id/usdtv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="after the appointment is approved you can visit the hospital "
-        android:textColor="#4ACFAF"
+        android:text="visit hospital only if appointment is approved"
+        android:textColor="#83EF07"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintVertical_bias="0.045" />
 
     <EditText
         android:id="@+id/dist"
-        android:layout_width="168dp"
-        android:layout_height="36dp"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
         android:background="#06D5A3"
         android:ems="10"
-        android:hint="district"
+        android:hint="enter district"
+        android:textColor="#0721B1"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -29,12 +29,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.veiwHolder> {
     @Override
     public void onBindViewHolder(@NonNull veiwHolder holder, int position) {
         Model model = mlist.get(position);
-        holder.FULLNAME.setText(model.getFullName());
-        holder.IDNUM.setText(model.getIdNum());
+        holder.FULLNAME.setText(model.getFullname());
+        holder.IDNUM.setText(model.getIdnum());
         holder.DISTRICT.setText(model.getDistict());
-        holder.TA.setText(model.getTA());
-        holder.PSIGN1.setText(model.getVillage());
+        holder.TA.setText(model.getTa());
         holder.VILLAGE.setText(model.getVillage());
+        holder.PSIGN1.setText(model.getPsign1());
+        holder.PSIGN2.setText(model.getPsign2());
+        holder.PSIGN3.setText(model.getPsign3());
+        holder.PSIGN4.setText(model.getPsign4());
 
     }
 
@@ -48,15 +51,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.veiwHolder> {
 
         public veiwHolder(@NonNull View itemView) {
             super(itemView);
-            FULLNAME = itemView.findViewById(R.id.ffname);
-            IDNUM = itemView.findViewById(R.id.iidnum);
-            DISTRICT = itemView.findViewById(R.id.pdist);
-            TA = itemView.findViewById(R.id.ptta);
-            VILLAGE = itemView.findViewById(R.id.pvllg);
-            PSIGN1 = itemView.findViewById(R.id.pss1);
-            PSIGN2 = itemView.findViewById(R.id.pss2);
-            PSIGN3 = itemView.findViewById(R.id.pss3);
-            PSIGN4 = itemView.findViewById(R.id.pss4);
+            FULLNAME = itemView.findViewById(R.id.ffuname);
+            IDNUM = itemView.findViewById(R.id.iiudnum);
+            DISTRICT = itemView.findViewById(R.id.updist);
+            TA = itemView.findViewById(R.id.putta);
+            VILLAGE = itemView.findViewById(R.id.upvllg);
+            PSIGN1 = itemView.findViewById(R.id.upss1);
+            PSIGN2 = itemView.findViewById(R.id.upss2);
+            PSIGN3 = itemView.findViewById(R.id.upss3);
+            PSIGN4 = itemView.findViewById(R.id.upss4);
         }
 
 

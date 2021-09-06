@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MEDICALSUPPORTSYSTEM">
-        <activity android:name=".Uploadhealthtips"></activity>
+        <activity android:name=".ShowData2"></activity>
+        <activity android:name=".HeelthTips" />
+        <activity android:name=".Uploadhealthtips" />
         <activity android:name=".ShowData" />
         <activity android:name=".Appointmants" />
         <activity android:name=".doctors" />

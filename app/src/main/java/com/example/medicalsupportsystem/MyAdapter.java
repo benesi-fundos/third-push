@@ -52,7 +52,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.veiwHolder> {
         public veiwHolder(@NonNull View itemView) {
             super(itemView);
             FULLNAME = itemView.findViewById(R.id.ffuname);
-            IDNUM = itemView.findViewById(R.id.iiudnum);
+           IDNUM = itemView.findViewById(R.id.iiudnum);
             DISTRICT = itemView.findViewById(R.id.updist);
             TA = itemView.findViewById(R.id.putta);
             VILLAGE = itemView.findViewById(R.id.upvllg);
@@ -61,27 +61,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.veiwHolder> {
             PSIGN3 = itemView.findViewById(R.id.upss3);
             PSIGN4 = itemView.findViewById(R.id.upss4);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

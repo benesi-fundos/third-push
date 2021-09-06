@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-public Button signup1, signin1,  signup2, signin2, goForTest;
+public Button signup1, signin1,  signup2, signin2, goForTest, healthTipps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ signin1 =(Button)findViewById(R.id.btn2);
 signup2 =(Button)findViewById(R.id.btnb1);
 signin2=(Button)findViewById(R.id.btnb2);
 goForTest=(Button)findViewById(R.id.btn3);
+healthTipps=(Button)findViewById(R.id.btn4);
 
         signup1.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -27,6 +28,12 @@ goForTest=(Button)findViewById(R.id.btn3);
   startActivity(create);
     }
 });
+//        healthTipps.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this, ShowData2.class));
+//            }
+//        });
 signup2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

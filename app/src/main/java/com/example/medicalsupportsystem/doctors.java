@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class doctors extends AppCompatActivity {
-    Button logout, checkAppts;
+    Button logout, checkAppts, UploadHealthTips;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +19,21 @@ public class doctors extends AppCompatActivity {
         logout = (Button) (Button)findViewById(R.id.logoutt);
         logout.setOnClickListener(this::logout);
         checkAppts =  (Button) (Button)findViewById(R.id.app);
+        UploadHealthTips = (Button) findViewById(R.id.uplodapp);
 
         checkAppts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(doctors.this, ShowData.class));
+            }
+        });
+
+        UploadHealthTips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent = new Intent(doctors.this, HeelthTips.class);
+                startActivity(intent);
+
             }
         });
     }
